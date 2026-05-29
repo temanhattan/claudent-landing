@@ -20,29 +20,29 @@ export default function Footer() {
         <div className="flex items-start gap-8">
           <ArrowUpRight className="w-5 h-5 text-[#051A24] dark:text-[#F6FCFF] mt-1 shrink-0" />
 
-          {/* Column 1 */}
+          {/* Column 1: Internal Hash Links */}
           <div className="flex flex-col gap-3">
             <a
-              href={getSafeUrl('#services')}
+              href="#services"
               className="text-base text-[#051A24] dark:text-[#F6FCFF] hover:opacity-70 transition-opacity rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#051A24] focus-visible:ring-offset-2 dark:focus-visible:ring-[#F6FCFF] dark:focus-visible:ring-offset-[#0a0a0a]"
             >
               Services
             </a>
             <a
-              href={getSafeUrl('#work')}
+              href="#work"
               className="text-base text-[#051A24] dark:text-[#F6FCFF] hover:opacity-70 transition-opacity rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#051A24] focus-visible:ring-offset-2 dark:focus-visible:ring-[#F6FCFF] dark:focus-visible:ring-offset-[#0a0a0a]"
             >
               Work
             </a>
             <a
-              href={getSafeUrl('#about')}
+              href="#about"
               className="text-base text-[#051A24] dark:text-[#F6FCFF] hover:opacity-70 transition-opacity rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#051A24] focus-visible:ring-offset-2 dark:focus-visible:ring-[#F6FCFF] dark:focus-visible:ring-offset-[#0a0a0a]"
             >
               About
             </a>
           </div>
 
-          {/* Column 2 */}
+          {/* Column 2: External Links */}
           <div className="flex flex-col gap-3">
             <a
               href={getSafeUrl('https://x.com')}
