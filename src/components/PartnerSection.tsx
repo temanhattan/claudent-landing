@@ -77,7 +77,7 @@ export default function PartnerSection() {
         img.style.transform = `rotate(${startRotation}deg) scale(0.5)`;
       });
     },
-    []
+    [MAX_POOL_SIZE]
   );
 
   return (
