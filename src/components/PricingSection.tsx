@@ -12,10 +12,10 @@ export default function PricingSection() {
         {/* Card 1 - Monthly Partnership */}
         <div
           onClick={() => setActiveCard('partnership')}
-          className={`rounded-[40px] pl-10 pr-10 md:pr-24 pt-3 pb-10 cursor-pointer transition-all duration-500 ease-out select-none ${
+          className={`rounded-[40px] pl-10 pr-10 md:pr-24 pt-3 pb-10 cursor-pointer border border-transparent transition-all duration-500 ease-out select-none ${
             activeCard === 'partnership'
-              ? 'bg-[#051A24] dark:bg-[#0D212C] text-[#F6FCFF]'
-              : 'bg-white dark:bg-[#111111] text-[#051A24] dark:text-[#F6FCFF]'
+              ? 'bg-[#051A24] dark:bg-[#0D212C] text-[#F6FCFF] dark:border-transparent'
+              : 'bg-white dark:bg-[#12232d] text-[#051A24] dark:text-[#F6FCFF] dark:border-white/5'
           } ${isInView ? 'animate-fade-in-up' : 'opacity-0'}`}
           style={{
             animationDelay: '0.1s',
@@ -89,10 +89,10 @@ export default function PricingSection() {
         {/* Card 2 - Custom Project */}
         <div
           onClick={() => setActiveCard('custom')}
-          className={`rounded-[40px] pl-10 pr-10 md:pr-24 pt-3 pb-10 cursor-pointer transition-all duration-500 ease-out select-none ${
+          className={`rounded-[40px] pl-10 pr-10 md:pr-24 pt-3 pb-10 cursor-pointer border border-transparent transition-all duration-500 ease-out select-none ${
             activeCard === 'custom'
-              ? 'bg-[#051A24] dark:bg-[#0D212C] text-[#F6FCFF]'
-              : 'bg-white dark:bg-[#111111] text-[#051A24] dark:text-[#F6FCFF]'
+              ? 'bg-[#051A24] dark:bg-[#0D212C] text-[#F6FCFF] dark:border-transparent'
+              : 'bg-white dark:bg-[#12232d] text-[#051A24] dark:text-[#F6FCFF] dark:border-white/5'
           } ${isInView ? 'animate-fade-in-up' : 'opacity-0'}`}
           style={{
             animationDelay: '0.2s',
