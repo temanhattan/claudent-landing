@@ -248,13 +248,13 @@ function MarqueeSection() {
 }
 
 export default function App() {
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    // Check system preference on mount
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    setIsDark(prefersDark);
-  }, []);
+  const [isDark, setIsDark] = useState(() => {
+    // Check system preference on mount using lazy initializer
+    if (typeof window !== 'undefined') {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+    return false;
+  });
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', isDark);

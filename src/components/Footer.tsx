@@ -1,6 +1,7 @@
 import { ArrowUpRight } from 'lucide-react';
 import Button from './Button';
 import { useInViewAnimation } from '../hooks/useInViewAnimation';
+import { getSafeUrl } from '../utils/security';
 
 export default function Footer() {
   const { ref, isInView } = useInViewAnimation();
@@ -22,19 +23,19 @@ export default function Footer() {
           {/* Column 1 */}
           <div className="flex flex-col gap-3">
             <a
-              href="#services"
+              href={getSafeUrl('#services')}
               className="text-base text-[#051A24] dark:text-[#F6FCFF] hover:opacity-70 transition-opacity"
             >
               Services
             </a>
             <a
-              href="#work"
+              href={getSafeUrl('#work')}
               className="text-base text-[#051A24] dark:text-[#F6FCFF] hover:opacity-70 transition-opacity"
             >
               Work
             </a>
             <a
-              href="#about"
+              href={getSafeUrl('#about')}
               className="text-base text-[#051A24] dark:text-[#F6FCFF] hover:opacity-70 transition-opacity"
             >
               About
@@ -44,7 +45,7 @@ export default function Footer() {
           {/* Column 2 */}
           <div className="flex flex-col gap-3">
             <a
-              href="https://x.com"
+              href={getSafeUrl('https://x.com')}
               target="_blank"
               rel="noopener noreferrer"
               className="text-base text-[#051A24] dark:text-[#F6FCFF] hover:opacity-70 transition-opacity"
@@ -52,7 +53,7 @@ export default function Footer() {
               x.com
             </a>
             <a
-              href="https://linkedin.com"
+              href={getSafeUrl('https://linkedin.com')}
               target="_blank"
               rel="noopener noreferrer"
               className="text-base text-[#051A24] dark:text-[#F6FCFF] hover:opacity-70 transition-opacity"
