@@ -234,7 +234,7 @@ function MarqueeSection() {
         <div className="flex shrink-0">
           {doubledImages.map((src, idx) => (
             <img
-              key={idx}
+              key={`${src}-${idx}`}
               src={src}
               alt={`Project preview ${(idx % marqueeImages.length) + 1}`}
               className="h-[280px] md:h-[500px] object-cover mx-3 rounded-2xl shadow-lg shrink-0 pointer-events-none"
@@ -248,13 +248,13 @@ function MarqueeSection() {
 }
 
 export default function App() {
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
+  const [isDark, setIsDark] = useState(() => {
     // Check system preference on mount
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    setIsDark(prefersDark);
-  }, []);
+    if (typeof window !== 'undefined') {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+    return false;
+  });
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', isDark);
