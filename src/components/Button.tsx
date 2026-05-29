@@ -1,4 +1,5 @@
 import React from 'react';
+import { getSafeUrl } from '../utils/security';
 
 type ButtonVariant = 'primary' | 'secondary' | 'tertiary';
 
@@ -36,16 +37,17 @@ export default function Button({
   ...props
 }: ButtonProps) {
   const baseClasses =
-    'rounded-full px-7 py-3 text-sm font-medium transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] cursor-pointer';
+    'rounded-full px-7 py-3 text-sm font-medium transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#051A24] focus-visible:ring-offset-2 dark:focus-visible:ring-[#F6FCFF] dark:focus-visible:ring-offset-[#0a0a0a]';
 
   const classes = `${baseClasses} ${variantStyles[variant]} ${className}`;
 
   if (href) {
+    const safeHref = getSafeUrl(href);
     return (
       <a
-        href={href}
-        target={href.startsWith('http') ? '_blank' : undefined}
-        rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+        href={safeHref}
+        target={safeHref.startsWith('http') ? '_blank' : undefined}
+        rel={safeHref.startsWith('http') ? 'noopener noreferrer' : undefined}
         className={classes}
         style={variantShadows[variant]}
       >
