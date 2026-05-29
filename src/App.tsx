@@ -35,7 +35,7 @@ function DarkModeToggle({
   return (
     <button
       onClick={onToggle}
-      className="fixed top-6 right-6 z-50 w-10 h-10 rounded-full bg-white dark:bg-[#111111] flex items-center justify-center transition-colors cursor-pointer"
+      className="fixed top-6 right-6 z-50 w-10 h-10 rounded-full bg-white dark:bg-[#111111] flex items-center justify-center transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#051A24] focus-visible:ring-offset-2 dark:focus-visible:ring-[#F6FCFF] dark:focus-visible:ring-offset-[#0a0a0a]"
       style={{
         boxShadow: '0 0 0 0.5px rgba(0,0,0,0.05), 0 4px 30px rgba(0,0,0,0.08)',
       }}
@@ -248,13 +248,12 @@ function MarqueeSection() {
 }
 
 export default function App() {
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    // Check system preference on mount
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    setIsDark(prefersDark);
-  }, []);
+  const [isDark, setIsDark] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+    return false;
+  });
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', isDark);
