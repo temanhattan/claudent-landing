@@ -229,7 +229,7 @@ function MarqueeSection() {
         onTouchMove={handleTouchMove}
         onTouchEnd={handleMouseUpOrLeave}
         className="flex overflow-x-hidden cursor-grab active:cursor-grabbing"
-        style={{ WebkitOverflowScrolling: 'touch' }}
+        style={{ WebkitOverflowScrolling: 'touch', willChange: 'scroll-position' }}
       >
         <div className="flex shrink-0">
           {doubledImages.map((src, idx) => (
