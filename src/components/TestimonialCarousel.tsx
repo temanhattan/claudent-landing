@@ -184,6 +184,7 @@ export default function TestimonialCarousel() {
             transition: isTransitioning
               ? 'transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)'
               : 'none',
+            willChange: 'transform',
           }}
         >
           {tripledTestimonials.map((t, idx) => (

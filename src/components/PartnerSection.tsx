@@ -17,6 +17,11 @@ export default function PartnerSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const lastSpawnTime = useRef(0);
 
+  // DOM Node Recycling Pool for better performance
+  const imagePool = useRef<HTMLImageElement[]>([]);
+  const poolIndex = useRef(0);
+  const MAX_POOL_SIZE = 15; // 1000ms / 80ms interval = ~12.5 max visible at once
+
   const handleMouseMove = useCallback(
     (e: React.MouseEvent<HTMLDivElement>) => {
       const now = Date.now();
@@ -30,37 +35,47 @@ export default function PartnerSection() {
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
 
-      const img = document.createElement('img');
+      let img: HTMLImageElement;
+
+      // Lazy initialization of the pool
+      if (imagePool.current.length < MAX_POOL_SIZE) {
+        img = document.createElement('img');
+        img.alt = '';
+        img.setAttribute('aria-hidden', 'true');
+        img.style.position = 'absolute';
+        img.style.width = '80px';
+        img.style.height = '80px';
+        img.style.objectFit = 'cover';
+        img.style.borderRadius = '12px';
+        img.style.pointerEvents = 'none';
+        img.style.zIndex = '10';
+        img.style.willChange = 'transform, opacity'; // Hardware acceleration
+        imagePool.current.push(img);
+        container.appendChild(img);
+      } else {
+        img = imagePool.current[poolIndex.current];
+        poolIndex.current = (poolIndex.current + 1) % MAX_POOL_SIZE;
+      }
+
+      // Reset styles without transition to snap into place
+      const startRotation = Math.random() * 20 - 10;
+      img.style.transition = 'none';
+      img.style.opacity = '1';
       img.src = gifImages[Math.floor(Math.random() * gifImages.length)];
-      img.style.position = 'absolute';
       img.style.left = `${x - 40}px`;
       img.style.top = `${y - 40}px`;
-      img.style.width = '80px';
-      img.style.height = '80px';
-      img.style.objectFit = 'cover';
-      img.style.borderRadius = '12px';
-      img.style.pointerEvents = 'none';
-      img.style.zIndex = '10';
-      img.style.transform = `rotate(${Math.random() * 20 - 10}deg)`;
-      img.style.transition = 'opacity 1s ease-out, transform 1s ease-out';
-      img.style.opacity = '1';
+      img.style.transform = `rotate(${startRotation}deg) scale(1)`;
 
-      container.appendChild(img);
-
+      // Add back transitions and trigger animation
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
+          img.style.transition = 'opacity 1s ease-out, transform 1s ease-out';
           img.style.opacity = '0';
-          img.style.transform += ' scale(0.5)';
+          img.style.transform = `rotate(${startRotation}deg) scale(0.5)`;
         });
       });
-
-      setTimeout(() => {
-        if (container.contains(img)) {
-          container.removeChild(img);
-        }
-      }, 1000);
     },
-    []
+    [MAX_POOL_SIZE]
   );
 
   return (
