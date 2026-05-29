@@ -1,0 +1,3 @@
+## 2024-05-18 - Systematizing Focus Visibility for Custom Components
+**Learning:** Default browser focus rings often have poor contrast on customized UI components, especially in custom dark modes or on components with heavily rounded borders. The absence of explicit `focus-visible` styles makes keyboard navigation an afterthought and significantly degrades the user experience for users relying on keyboard navigation.
+**Action:** Always ensure that every custom interactive element (buttons, toggles, custom links) has explicit, high-contrast `focus-visible` styles matching the brand palette (e.g. `focus-visible:ring-2 focus-visible:ring-offset-2`). This needs to be checked and implemented uniformly across all interactive elements to maintain a cohesive experience.
