@@ -66,15 +66,13 @@ export default function PartnerSection() {
       img.style.top = `${y - 40}px`;
       img.style.transform = `rotate(${startRotation}deg) scale(1)`;
 
-      // Force reflow to ensure the non-transitioned state is applied
-      void img.offsetWidth;
-
       // Add back transitions and trigger animation
-      img.style.transition = 'opacity 1s ease-out, transform 1s ease-out';
-
       requestAnimationFrame(() => {
-        img.style.opacity = '0';
-        img.style.transform = `rotate(${startRotation}deg) scale(0.5)`;
+        requestAnimationFrame(() => {
+          img.style.transition = 'opacity 1s ease-out, transform 1s ease-out';
+          img.style.opacity = '0';
+          img.style.transform = `rotate(${startRotation}deg) scale(0.5)`;
+        });
       });
     },
     [MAX_POOL_SIZE]
