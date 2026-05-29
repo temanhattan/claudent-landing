@@ -1,4 +1,5 @@
 import React from 'react';
+import { getSafeUrl } from '../utils/security';
 
 type ButtonVariant = 'primary' | 'secondary' | 'tertiary';
 
@@ -41,11 +42,12 @@ export default function Button({
   const classes = `${baseClasses} ${variantStyles[variant]} ${className}`;
 
   if (href) {
+    const safeHref = getSafeUrl(href);
     return (
       <a
-        href={href}
-        target={href.startsWith('http') ? '_blank' : undefined}
-        rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+        href={safeHref}
+        target={safeHref.startsWith('http') ? '_blank' : undefined}
+        rel={safeHref.startsWith('http') ? 'noopener noreferrer' : undefined}
         className={classes}
         style={variantShadows[variant]}
       >
