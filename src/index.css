@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ===== Custom Fonts ===== */
+@font-face {
+  font-family: 'PP Neue Montreal';
+  src: url('https://assets.website-files.com/6009ec8cda7f305645c9d91b/60176f9bb43e36419997ecfe_PPNeueMontreal-Book.otf') format('opentype');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PP Neue Montreal';
+  src: url('https://assets.website-files.com/6009ec8cda7f305645c9d91b/60176f9b39c5673e51a86f5a_PPNeueMontreal-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PP Mondwest';
+  src: url('/PPMondwest-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+
+/* ===== Tailwind Theme Extensions ===== */
+@theme {
+  --font-sans: 'PP Neue Montreal', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'PP Mondwest', Georgia, 'Times New Roman', serif;
+
+  --color-brand-dark: #051A24;
+  --color-brand-secondary: #0D212C;
+  --color-brand-light: #F6FCFF;
+  --color-brand-light-muted: #E0EBF0;
+  --color-brand-muted: #273C46;
+
+  --animate-marquee: marquee 30s linear infinite;
+  --animate-marquee-mobile: marquee 10s linear infinite;
+  --animate-fade-in-up: fadeInUp 0.8s ease-out forwards;
+}
+
+/* ===== Base Styles ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: #051A24;
+  background-color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== Dark Mode ===== */
+.dark body,
+.dark {
+  background-color: #0a0a0a;
+  color: #F6FCFF;
+}
+
+.dark .bg-white {
+  background-color: #111111;
+}
+
+/* ===== Marquee Animation ===== */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+@media (max-width: 768px) {
+  .animate-marquee {
+    animation: marquee 10s linear infinite;
+  }
+}
+
+/* ===== Fade In Up Animation ===== */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+/* ===== Scrollbar Styling ===== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #051A24;
+  border-radius: 3px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #F6FCFF;
+}
+
+/* ===== Selection ===== */
+::selection {
+  background: #051A24;
+  color: #F6FCFF;
+}
+
+.dark ::selection {
+  background: #F6FCFF;
+  color: #051A24;
+}
