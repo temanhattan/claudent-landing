@@ -229,7 +229,7 @@ function MarqueeSection() {
         onTouchMove={handleTouchMove}
         onTouchEnd={handleMouseUpOrLeave}
         className="flex overflow-x-hidden cursor-grab active:cursor-grabbing"
-        style={{ WebkitOverflowScrolling: 'touch' }}
+        style={{ WebkitOverflowScrolling: 'touch', willChange: 'scroll-position' }}
       >
         <div className="flex shrink-0">
           {doubledImages.map((src, idx) => (
@@ -248,13 +248,13 @@ function MarqueeSection() {
 }
 
 export default function App() {
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
+  const [isDark, setIsDark] = useState(() => {
     // Check system preference on mount
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    setIsDark(prefersDark);
-  }, []);
+    if (typeof window !== 'undefined') {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+    return false;
+  });
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', isDark);
