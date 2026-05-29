@@ -175,7 +175,7 @@ export default function TestimonialCarousel() {
       </div>
 
       {/* Cards Track */}
-      <div className="overflow-hidden">
+      <div className="overflow-hidden py-8 -my-8">
         <div
           ref={trackRef}
           className="flex gap-6 pl-6"
