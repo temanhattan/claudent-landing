@@ -40,6 +40,8 @@ export default function PartnerSection() {
       // Lazy initialization of the pool
       if (imagePool.current.length < MAX_POOL_SIZE) {
         img = document.createElement('img');
+        img.alt = '';
+        img.setAttribute('aria-hidden', 'true');
         img.style.position = 'absolute';
         img.style.width = '80px';
         img.style.height = '80px';
