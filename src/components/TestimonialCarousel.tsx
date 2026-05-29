@@ -160,14 +160,14 @@ export default function TestimonialCarousel() {
       <div className="flex items-center gap-3 px-6 mb-6 md:max-w-4xl md:ml-auto">
         <button
           onClick={goPrev}
-          className="w-12 h-12 rounded-full border border-[#0D212C]/20 dark:border-[#F6FCFF]/20 flex items-center justify-center hover:bg-[#051A24]/5 dark:hover:bg-[#F6FCFF]/5 transition-colors cursor-pointer"
+          className="w-12 h-12 rounded-full border border-[#0D212C]/20 dark:border-[#F6FCFF]/20 flex items-center justify-center hover:bg-[#051A24]/5 dark:hover:bg-[#F6FCFF]/5 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#051A24] focus-visible:ring-offset-2 dark:focus-visible:ring-[#F6FCFF] dark:focus-visible:ring-offset-[#0a0a0a]"
           aria-label="Previous testimonial"
         >
           <ChevronLeft className="w-5 h-5 text-[#0D212C] dark:text-[#F6FCFF]" />
         </button>
         <button
           onClick={goNext}
-          className="w-12 h-12 rounded-full border border-[#0D212C]/20 dark:border-[#F6FCFF]/20 flex items-center justify-center hover:bg-[#051A24]/5 dark:hover:bg-[#F6FCFF]/5 transition-colors cursor-pointer"
+          className="w-12 h-12 rounded-full border border-[#0D212C]/20 dark:border-[#F6FCFF]/20 flex items-center justify-center hover:bg-[#051A24]/5 dark:hover:bg-[#F6FCFF]/5 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#051A24] focus-visible:ring-offset-2 dark:focus-visible:ring-[#F6FCFF] dark:focus-visible:ring-offset-[#0a0a0a]"
           aria-label="Next testimonial"
         >
           <ChevronRight className="w-5 h-5 text-[#0D212C] dark:text-[#F6FCFF]" />
@@ -184,6 +184,7 @@ export default function TestimonialCarousel() {
             transition: isTransitioning
               ? 'transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)'
               : 'none',
+            willChange: 'transform',
           }}
         >
           {tripledTestimonials.map((t, idx) => (

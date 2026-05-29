@@ -24,19 +24,19 @@ export default function Footer() {
           <div className="flex flex-col gap-3">
             <a
               href={getSafeUrl('#services')}
-              className="text-base text-[#051A24] dark:text-[#F6FCFF] hover:opacity-70 transition-opacity"
+              className="text-base text-[#051A24] dark:text-[#F6FCFF] hover:opacity-70 transition-opacity rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#051A24] focus-visible:ring-offset-2 dark:focus-visible:ring-[#F6FCFF] dark:focus-visible:ring-offset-[#0a0a0a]"
             >
               Services
             </a>
             <a
               href={getSafeUrl('#work')}
-              className="text-base text-[#051A24] dark:text-[#F6FCFF] hover:opacity-70 transition-opacity"
+              className="text-base text-[#051A24] dark:text-[#F6FCFF] hover:opacity-70 transition-opacity rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#051A24] focus-visible:ring-offset-2 dark:focus-visible:ring-[#F6FCFF] dark:focus-visible:ring-offset-[#0a0a0a]"
             >
               Work
             </a>
             <a
               href={getSafeUrl('#about')}
-              className="text-base text-[#051A24] dark:text-[#F6FCFF] hover:opacity-70 transition-opacity"
+              className="text-base text-[#051A24] dark:text-[#F6FCFF] hover:opacity-70 transition-opacity rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#051A24] focus-visible:ring-offset-2 dark:focus-visible:ring-[#F6FCFF] dark:focus-visible:ring-offset-[#0a0a0a]"
             >
               About
             </a>
@@ -48,7 +48,7 @@ export default function Footer() {
               href={getSafeUrl('https://x.com')}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-base text-[#051A24] dark:text-[#F6FCFF] hover:opacity-70 transition-opacity"
+              className="text-base text-[#051A24] dark:text-[#F6FCFF] hover:opacity-70 transition-opacity rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#051A24] focus-visible:ring-offset-2 dark:focus-visible:ring-[#F6FCFF] dark:focus-visible:ring-offset-[#0a0a0a]"
             >
               x.com
             </a>
@@ -56,7 +56,7 @@ export default function Footer() {
               href={getSafeUrl('https://linkedin.com')}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-base text-[#051A24] dark:text-[#F6FCFF] hover:opacity-70 transition-opacity"
+              className="text-base text-[#051A24] dark:text-[#F6FCFF] hover:opacity-70 transition-opacity rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#051A24] focus-visible:ring-offset-2 dark:focus-visible:ring-[#F6FCFF] dark:focus-visible:ring-offset-[#0a0a0a]"
             >
               LinkedIn
             </a>

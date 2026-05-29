@@ -61,7 +61,7 @@ function ProjectItem({ project }: { project: Project }) {
             href={getSafeUrl(project.link)}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs font-semibold text-[#051A24] dark:text-[#F6FCFF] border border-[#051A24]/10 dark:border-[#F6FCFF]/10 rounded-full px-4 py-2 hover:bg-[#051A24]/5 dark:hover:bg-[#F6FCFF]/5 transition-colors self-start sm:self-auto"
+            className="text-xs font-semibold text-[#051A24] dark:text-[#F6FCFF] border border-[#051A24]/10 dark:border-[#F6FCFF]/10 rounded-full px-4 py-2 hover:bg-[#051A24]/5 dark:hover:bg-[#F6FCFF]/5 transition-colors self-start sm:self-auto focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#051A24] focus-visible:ring-offset-2 dark:focus-visible:ring-[#F6FCFF] dark:focus-visible:ring-offset-[#0a0a0a]"
           >
             Open Website ↗
           </a>

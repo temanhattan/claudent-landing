@@ -37,7 +37,7 @@ export default function Button({
   ...props
 }: ButtonProps) {
   const baseClasses =
-    'rounded-full px-7 py-3 text-sm font-medium transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] cursor-pointer';
+    'rounded-full px-7 py-3 text-sm font-medium transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#051A24] focus-visible:ring-offset-2 dark:focus-visible:ring-[#F6FCFF] dark:focus-visible:ring-offset-[#0a0a0a]';
 
   const classes = `${baseClasses} ${variantStyles[variant]} ${className}`;
 
