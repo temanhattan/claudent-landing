@@ -13,7 +13,7 @@ const projects: Project[] = [
   {
     name: 'Thoutha',
     description: 'From idea to Thounds of users everyday (Live Proof of Concept)',
-    videoUrl: '/thoutha-video.mp4',
+    videoUrl: `${import.meta.env.BASE_URL}thoutha-video.mp4`,
     link: 'https://thoutha.page/',
   },
   {
