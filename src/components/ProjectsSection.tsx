@@ -16,17 +16,6 @@ const projects: Project[] = [
     videoUrl: `${import.meta.env.BASE_URL}thoutha-video.mp4`,
     link: 'https://thoutha.page/',
   },
-  {
-    name: 'Automation Platforms',
-    description: 'Streamlining industrial automation processes',
-    image:
-      'https://motionsites.ai/assets/hero-automation-machines-preview-DlTveRIN.gif',
-  },
-  {
-    name: 'xPortfolio',
-    description: 'Modern portfolio management platform',
-    image: 'https://motionsites.ai/assets/hero-xportfolio-preview-D4A8maiC.gif',
-  },
 ];
 
 function ProjectItem({ project }: { project: Project }) {
